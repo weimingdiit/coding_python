@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/test_corpus/C3-Art/C3-Art0015.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/train_corpus/C3-Art/C3-Art0001.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/train_corpus/C3-Art/C3-Art0004.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/train_corpus/C4-Literature/C4-Literature29.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/zbb_patent/train_patent/weimingtest.csv" charset="GBK" />
+  </component>
+</project>
