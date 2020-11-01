@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/chinese_text_classification.iml" filepath="$PROJECT_DIR$/.idea/chinese_text_classification.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/coding_python.iml" filepath="$PROJECT_DIR$/.idea/coding_python.iml" />
     </modules>
   </component>
 </project>

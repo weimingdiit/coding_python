@@ -37,17 +37,20 @@ def readbunchobj(path):
         bunch = pickle.load(file_obj)
     return bunch
 
+
 # 读取csv文件
 def readCsv(path):
     with open(path, 'r') as f:
         csv_rows = list(csv.reader(f))
     return csv_rows
 
+
 # csv文件每一行保存为一个文件
-def transCsvTotxt(path,txt_path):
+def transCsvTotxt(path, txt_path):
     csv_rows = readCsv(path)
     for row in csv_rows:
-        savefile(txt_path+row[0],bytes(row[1],"UTF-8"))
+        savefile(txt_path + row[0], bytes(row[1], "UTF-8"))
+
 
 # csv文件转为 text[]
 def transCsvTotxtArray(path):
@@ -57,19 +60,20 @@ def transCsvTotxtArray(path):
         texts.append(row[2])
     return texts
 
+
 # csv文件转为 text[]
 def transCsvTotxtMap(path):
-    dict={}
+    dict = {}
     csv_rows = readCsv(path)
     for row in csv_rows:
         dict[row[0]] = row[1]
     return dict
 
+
 # csv文件转为企业名单
 def transCsvToCompanyName(path):
-    dict={}
+    dict = {}
     csv_rows = readCsv(path)
-    for index,row in enumerate(csv_rows):
-        dict[index] = row[0]+"_"+row[1]
+    for index, row in enumerate(csv_rows):
+        dict[index] = row[0] + "_" + row[1]
     return dict
-

@@ -9,7 +9,6 @@
 @software: PyCharm
 """
 
-
 from sklearn.naive_bayes import MultinomialNB  # 导入多项式贝叶斯算法
 from sklearn import metrics
 from Tools import readbunchobj
@@ -33,6 +32,7 @@ for flabel, file_name, expct_cate in zip(test_set.label, test_set.filenames, pre
         print(file_name, ": 实际类别:", flabel, " -->预测类别:", expct_cate)
 
 print("预测完毕!!!")
+
 
 # 计算分类精度：
 

@@ -97,7 +97,8 @@ def getSimilaritiesD2(documents, keyword):
     # print(sort_sims)
     return sort_sims
 
-def saveResultToTxt(csv_path,sava_path):
+
+def saveResultToTxt(csv_path, sava_path):
     # 获取文本编号和企业的映射关系
     companyWithNo = transCsvToCompanyName(csv_path)
 
@@ -114,7 +115,6 @@ def saveResultToTxt(csv_path,sava_path):
 
 
 if __name__ == "__main__":
-
     # 文本集和搜索词
     # texts = ['吃鸡这里所谓的吃鸡并不是真的吃鸡，也不是谐音词刺激的意思',
     #          '而是出自策略射击游戏《绝地求生：大逃杀》里的台词',
@@ -123,11 +123,6 @@ if __name__ == "__main__":
     #
     # getSimilaritiesD1(texts,keyword)
 
-
-    csv_path1 = "E:\\project\\xmyselfProject\\chinese_text_classification\\zbb_patent\\train_patent\\qxwith11company.csv"
-    sava_path1 = "E:\\project\\xmyselfProject\\chinese_text_classification\\zbb_patent\\train_patent\\qx_result111.txt"
-    saveResultToTxt(csv_path1,sava_path1)
-
-
-
-
+    csv_path4 = "E:\\project\\xmyselfProject\\data\\patent_data\\train_patent\\czwith13company.csv"
+    sava_path4 = "E:\\project\\xmyselfProject\\data\\patent_data\\train_patent\\cz_result111.txt"
+    saveResultToTxt(csv_path4, sava_path4)

@@ -42,7 +42,9 @@ def getSimilaritiesD1(texts, keyword):
         print('kw 与 text%d 相似度为：%.2f' % (e, s))
 
 
-
+"""
+分词，并且去掉停用词
+"""
 
 
 def getSplit(data):
@@ -54,19 +56,6 @@ def getSplit(data):
             wordsFiltered.append(w.lower())
     return wordsFiltered
 
-"""
-
-1、采用nltk分词，并且去掉停用词
-2、基于文本集（专利文本数据）建立【词典】，并获得词典特征数
-3、用字符串表示的文档转换为用数字表示的文档向量（doc2bow()）
-4、基于第三步的结果计算出TF-IDF“模型”
-5、把 用词频表示文档向量 转化为  用tf-idf值表示的文档向量
-6、使用第五步的结果训练出一个LSI模型（潜在语义索引算法，核心思想是基于奇异值分解（SVD）的方法来得到文本的主题，是一种简单实用的主题模型）
-开始对比，计算相似度
-7、将需要对比的文本映射到n维的topic空间
-8、根据索引，计算得出相似度
-"""
-
 
 def getSimilaritiesD2(documents, keyword):
     texts = [getSplit(document) for document in documents]
@@ -74,24 +63,24 @@ def getSimilaritiesD2(documents, keyword):
     # 文档抽象出词袋
     dictionary = Dictionary(texts)
     # print(dictionary)
-    print(dictionary.token2id)
+    # print(dictionary.token2id)
     # 用字符串表示的文档转换为用id表示的文档向量
     corpus = [dictionary.doc2bow(text) for text in texts]
-    print(corpus)
+    # print(corpus)
 
     # 基于这些“训练文档”计算一个TF-IDF“模型”
     tfidf = TfidfModel(corpus)
     # 用词频表示文档向量 转化为  用tf-idf值表示的文档向量
     corpus_tfidf = tfidf[corpus]
-    for doc in corpus_tfidf:
-        print(doc)
+    # for doc in corpus_tfidf:
+    #     print(doc)
 
     # 训练一个LSI模型
-    lsi = models.LsiModel(corpus_tfidf, id2word=dictionary, num_topics=5)
-    lsi.print_topics(5)
+    lsi = models.LsiModel(corpus_tfidf, id2word=dictionary, num_topics=2)
+    lsi.print_topics(2)
     corpus_lsi = lsi[corpus_tfidf]
-    for doc in corpus_lsi:
-        print(doc)
+    # for doc in corpus_lsi:
+    #     print(doc)
 
     # 创建索引
     index = similarities.MatrixSimilarity(lsi[corpus])
@@ -99,7 +88,7 @@ def getSimilaritiesD2(documents, keyword):
     # 用之前训练好的LSI模型将其映射到二维的topic空间
     kw_bow = dictionary.doc2bow(getSplit(keyword))
     kw_lsi = lsi[kw_bow]
-    print(kw_lsi)
+    # print(kw_lsi)
 
     # 计算keyword和index中doc的余弦相似度了
     sims = index[kw_lsi]
@@ -108,7 +97,8 @@ def getSimilaritiesD2(documents, keyword):
     # print(sort_sims)
     return sort_sims
 
-def saveResultToTxt(csv_path,sava_path):
+
+def saveResultToTxt(csv_path, sava_path):
     # 获取文本编号和企业的映射关系
     companyWithNo = transCsvToCompanyName(csv_path)
 
@@ -120,12 +110,11 @@ def saveResultToTxt(csv_path,sava_path):
             for result in results:
                 finalResult = companyWithNo[index] + "," + str(index) + "," + companyWithNo[result[0]] + "," + str(
                     result[0]) + "," + str(result[1]) + "\n"
-                # fp.write(finalResult.encode('utf-8'))
+                fp.write(finalResult.encode('utf-8'))
                 print(finalResult)
 
 
 if __name__ == "__main__":
-
     # 文本集和搜索词
     # texts = ['吃鸡这里所谓的吃鸡并不是真的吃鸡，也不是谐音词刺激的意思',
     #          '而是出自策略射击游戏《绝地求生：大逃杀》里的台词',
@@ -134,13 +123,6 @@ if __name__ == "__main__":
     #
     # getSimilaritiesD1(texts,keyword)
 
-
-
-    csv_path3 = "E:\\project\\xmyselfProject\\chinese_text_classification\\zbb_patent\\train_patent\\bmwith16company.csv"
-    sava_path3 = "E:\\project\\xmyselfProject\\chinese_text_classification\\zbb_patent\\train_patent\\bm_result111.txt"
-    saveResultToTxt(csv_path3,sava_path3)
-
-
-
-
-
+    csv_path1 = "E:\\project\\xmyselfProject\\data\\patent_data\\train_patent\\qxwith11company.csv"
+    sava_path1 = "E:\\project\\xmyselfProject\\data\\patent_data\\train_patent\\qx_result111.txt"
+    saveResultToTxt(csv_path1, sava_path1)

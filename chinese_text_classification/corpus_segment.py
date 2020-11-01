@@ -61,11 +61,11 @@ def corpus_segment(corpus_path, seg_path):
 
 if __name__ == "__main__":
     # 对训练集进行分词
-    corpus_path = "./train_corpus/"  # 未分词分类语料库路径
-    seg_path = "./train_corpus_seg/"  # 分词后分类语料库路径
+    corpus_path = "train_corpus/"  # 未分词分类语料库路径
+    seg_path = "train_corpus_seg/"  # 分词后分类语料库路径
     corpus_segment(corpus_path, seg_path)
 
     # 对测试集进行分词
-    corpus_path = "./test_corpus/"  # 未分词分类语料库路径
-    seg_path = "./test_corpus_seg/"  # 分词后分类语料库路径
+    corpus_path = "test_corpus/"  # 未分词分类语料库路径
+    seg_path = "test_corpus_seg/"  # 分词后分类语料库路径
     corpus_segment(corpus_path, seg_path)
