@@ -1,13 +1,7 @@
 #!usr/bin/env python  
 # -*- coding:utf-8 _*-  
-""" 
-@project:chinese_text_classification
-@author:xiangguosun 
-@contact:sunxiangguodut@qq.com
-@website:http://blog.csdn.net/github_36326955
-@file: Tools.py 
-@platform: macOS High Sierra 10.13.1 Pycharm pro 2017.1 
-@time: 2018/01/23 
+"""
+@author: ming.wei
 """
 import csv
 import pickle
@@ -18,6 +12,11 @@ def savefile(savepath, content):
     with open(savepath, "wb") as fp:
         fp.write(content)
 
+
+def saveSimfile(savepath, content):
+    with open(savepath, mode='a') as fp:
+        fp.write(content)
+        fp.write('\n')
 
 # 读取文件
 def readfile(path):
@@ -69,6 +68,13 @@ def transCsvTotxtMap(path):
         dict[row[0]] = row[1]
     return dict
 
+
+def transCsvToMap(path):
+    dict = {}
+    csv_rows = readCsv(path)
+    for row in csv_rows:
+        dict[row[0]] = row[1]
+    return dict
 
 # csv文件转为企业名单
 def transCsvToCompanyName(path):

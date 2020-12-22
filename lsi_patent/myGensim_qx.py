@@ -124,5 +124,5 @@ if __name__ == "__main__":
     # getSimilaritiesD1(texts,keyword)
 
     csv_path1 = "E:\\project\\xmyselfProject\\data\\patent_data\\train_patent\\qxwith11company.csv"
-    sava_path1 = "E:\\project\\xmyselfProject\\data\\patent_data\\train_patent\\qx_result111.txt"
+    sava_path1 = "E:\\project\\xmyselfProject\\data\\patent_data\\train_patent\\qx_result.txt"
     saveResultToTxt(csv_path1, sava_path1)

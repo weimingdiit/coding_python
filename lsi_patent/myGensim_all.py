@@ -78,8 +78,8 @@ def getLsi(dictionary, corpus):
     # 用词频表示文档向量 转化为  用tf-idf值表示的文档向量
     corpus_tfidf = tfidf[corpus]
     # 训练一个LSI模型
-    lsi = models.LsiModel(corpus_tfidf, id2word=dictionary, num_topics=200)
-    # lsi = models.ldamodel(corpus_tfidf, id2word=dictionary, num_topics=2)
+    # lsi = models.LsiModel(corpus_tfidf, id2word=dictionary, num_topics=200)
+    lsi = models.LsiModel(corpus_tfidf, id2word=dictionary, num_topics=2)
     return lsi
 
 
@@ -119,7 +119,7 @@ def saveResultToTxt(csv_path, sava_path):
             for result in results:
                 finalResult = companyWithNo[index] + "," + str(index) + "," + companyWithNo[result[0]] + "," + str(
                     result[0]) + "," + str(result[1]) + "\n"
-                # fp.write(finalResult.encode('utf-8'))
+                fp.write(finalResult.encode('utf-8'))
                 print(finalResult)
 
 
@@ -132,26 +132,26 @@ if __name__ == "__main__":
     #
     # getSimilaritiesD1(texts,keyword)
 
-    csv_path6 = "E:\\project\\xmyselfProject\\data\\patent_data\\train_patent\\pthwith8company.csv"
+    csv_path6 = "E:\\project\\xmyselfProject\\data\\patent_data\\train_patent\\pth.csv"
     sava_path6 = "E:\\project\\xmyselfProject\\data\\patent_data\\train_patent\\pth_result111.txt"
     saveResultToTxt(csv_path6, sava_path6)
 
-    csv_path4 = "E:\\project\\xmyselfProject\\data\\patent_data\\train_patent\\czwith13company.csv"
+    csv_path4 = "E:\\project\\xmyselfProject\\data\\patent_data\\train_patent\\cz.csv"
     sava_path4 = "E:\\project\\xmyselfProject\\data\\patent_data\\train_patent\\cz_result111.txt"
     saveResultToTxt(csv_path4, sava_path4)
 
-    csv_path5 = "E:\\project\\xmyselfProject\\data\\patent_data\\train_patent\\gkwith8company.csv"
+    csv_path5 = "E:\\project\\xmyselfProject\\data\\patent_data\\train_patent\\gk.csv"
     sava_path5 = "E:\\project\\xmyselfProject\\data\\patent_data\\train_patent\\gk_result111.txt"
     saveResultToTxt(csv_path5, sava_path5)
 
-    csv_path3 = "E:\\project\\xmyselfProject\\data\\patent_data\\train_patent\\bmwith16company.csv"
+    csv_path3 = "E:\\project\\xmyselfProject\\data\\patent_data\\train_patent\\bm.csv"
     sava_path3 = "E:\\project\\xmyselfProject\\data\\patent_data\\train_patent\\bm_result111.txt"
     saveResultToTxt(csv_path3, sava_path3)
 
-    csv_path2 = "E:\\project\\xmyselfProject\\data\\patent_data\\train_patent\\rclwith13company.csv"
+    csv_path2 = "E:\\project\\xmyselfProject\\data\\patent_data\\train_patent\\rcl.csv"
     sava_path2 = "E:\\project\\xmyselfProject\\data\\patent_data\\train_patent\\rcl_result111.txt"
     saveResultToTxt(csv_path2, sava_path2)
 
-    csv_path1 = "E:\\project\\xmyselfProject\\data\\patent_data\\train_patent\\qxwith11company.csv"
+    csv_path1 = "E:\\project\\xmyselfProject\\data\\patent_data\\train_patent\\qx.csv"
     sava_path1 = "E:\\project\\xmyselfProject\\data\\patent_data\\train_patent\\qx_result111.txt"
     saveResultToTxt(csv_path1, sava_path1)
