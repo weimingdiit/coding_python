@@ -78,6 +78,7 @@ def train(X, vectorizer, true_k, minibatch=False, showLable=True, lableNum=6, sh
     return -km.score(X)
 
 
+
 def test():
     '''测试选择最优参数'''
 
