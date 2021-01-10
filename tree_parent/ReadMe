@@ -1,5 +1,4 @@
 step:
-1、构建多叉树
-2、专利数据转换为树
-3、遍历树（层序还是深度自己定义）
-4、计算相似度
+1、使用java 程序处理IPC，生成多维度的矩阵（根据树形结构）
+2、可以直接计算，也可以进行降维（pca） dimensionalityReductionReal() 方法 ，主要代码在 ReduceDimension.py 中
+3、计算相似度
