@@ -10,7 +10,9 @@ def createM(list):
 
 
 
-
+'''
+计算两个文本的相似度（数据源是已经矩阵化之后的数据）
+'''
 if __name__ == "__main__":
     inputPath = "E:\\myselfFile\\zbbFile\\矩阵\\SimTree\\CSV\\sample.csv"
     outputPath = "E:\\myselfFile\\zbbFile\\矩阵\\SimTree\\CSV\\sample_result.txt"
@@ -28,5 +30,5 @@ if __name__ == "__main__":
             v = cos_sim(v1,v2)
             print(k,v)
             content = k + ',' + str(v)
-            saveSimfile(outputPath, content)
+            # saveSimfile(outputPath, content)
 
